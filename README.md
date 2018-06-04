@@ -1,11 +1,17 @@
-**Simple HTTP Server**
+#Simple HTTP Server
 
 _Discription_
 
-**Technologies:**
-	- HTTP
-	- Java SE, Java IO
-	- Properties
-	- Log4j
-	- Maven
-	- JUnit
+##Technologies:
+
+- __HTTP__
+
+- __Java SE, Java IO__
+
+- __Properties__
+
+- __Log4j__
+
+- __Maven__
+
+- __JUnit__
