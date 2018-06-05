@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import by.net.iozhukov.server.service.Server;
-import by.net.iozhukov.utilits.ServerTimer;
+import by.net.iozhukov.server.service.ServerTimer;
 
 public class LauncherTest {
 

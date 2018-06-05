@@ -1,10 +1,9 @@
 package by.net.iozhukov.utilits;
 
 /**
- * 
- * 
- * 
- * @author Ilya Zhukov (ilya.beetle@gmail.com)
+ * Class storage html error pages.
+ *
+ * @author Ilya Zhukov
  */
 public class GeneratorServerPages {
 	

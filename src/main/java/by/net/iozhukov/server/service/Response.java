@@ -1,10 +1,12 @@
 package by.net.iozhukov.server.service;
 
 /**
+ * Class for creating Data Transfer Object necessary for server service
+ * operation.<br>
+ * Also, due to the operation of the multi-threaded application, it collects the
+ * processing log internally to output it after the client responds.
  * 
- * 
- * 
- * @author Ilya Zhukov (ilya.beetle@gmail.com)
+ * @author Ilya Zhukov
  */
 public class Response {
 
@@ -94,8 +96,15 @@ public class Response {
 		return log.toString();
 	}
 
+	/**
+	 * A method for adding an entry to the log of processing a particular query.<br>
+	 * <b>After each message puts a newline character.</b>
+	 * 
+	 * @param message
+	 *            - String with message
+	 */
 	public void addToLog(String message) {
-		log.append(message+"\n");
+		log.append(message + "\n");
 	}
 
 }

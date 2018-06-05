@@ -3,16 +3,15 @@ package by.net.iozhukov.utilits;
 import by.net.iozhukov.server.service.Response;
 
 /**
+ * The class parses the data from the request header and writes them to the
+ * appropriate fields the object of Response class
  * 
- * 
- * 
- * @author Ilya Zhukov (ilya.beetle@gmail.com)
+ * @author Ilya Zhukov
  */
-
 public class HeaderRequestParser {
 
 	public static void parse(Response interResponse) {
-		
+
 		String httpMethod = whatIsHTTPMethod(interResponse.getHeader()[0]);
 		interResponse.setHTTPMethod(httpMethod);
 		interResponse.addToLog("HTTP Method is: " + httpMethod);

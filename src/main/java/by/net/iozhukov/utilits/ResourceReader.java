@@ -10,12 +10,11 @@ import org.apache.log4j.Logger;
 
 import by.net.iozhukov.server.service.Response;
 
-
 /**
+ * The class determines which resource it is asking for, and returns it or the
+ * error page.
  * 
- * 
- * 
- * @author Ilya Zhukov (ilya.beetle@gmail.com)
+ * @author Ilya Zhukov
  */
 public class ResourceReader {
 

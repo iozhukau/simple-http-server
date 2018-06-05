@@ -14,10 +14,16 @@ import by.net.iozhukov.utilits.HeaderRequestParser;
 import by.net.iozhukov.utilits.ResourceReader;
 
 /**
+ * The class implements the Runnable interface.<br>
+ * The object of this class executes the request:<br>
+ * <ul>
+ * <li>Reading headers</li>
+ * <li>Header parsing</li>
+ * <li>Search for the requested resource</li>
+ * <li>Sending a Resource</li>
+ * </ul>
  * 
- * 
- * 
- * @author Ilya Zhukov (ilya.beetle@gmail.com)
+ * @author Ilya Zhukov
  */
 public class RequestProcessor implements Runnable {
 
@@ -25,6 +31,13 @@ public class RequestProcessor implements Runnable {
 	private InputStream inputStream;
 	private OutputStream outputStream;
 
+	/**
+	 * The constructor configures the input and output streams, from which the files
+	 * will come and where they will go.
+	 * 
+	 * @param socket
+	 *            - Port with which the handler interacts
+	 */
 	public RequestProcessor(Socket socket) {
 		try {
 			this.inputStream = socket.getInputStream();
@@ -45,6 +58,16 @@ public class RequestProcessor implements Runnable {
 		sendResponse(interResponse);
 	}
 
+	/**
+	 * Reads the header line by line in an array of rows, then saves it in DTO
+	 * Response. At the same time writes the header to the response object's log.
+	 * 
+	 * <br>
+	 * If there is an error reading the header, the status of the response is "500
+	 * Internal Server Error".
+	 * 
+	 * @return - The object of Response class
+	 */
 	private Response readRequest() {
 		Response interResponse = new Response();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -78,6 +101,13 @@ public class RequestProcessor implements Runnable {
 		return interResponse;
 	}
 
+	/**
+	 * Forms a response header, attaches the response body, and sends it to the
+	 * client.
+	 * 
+	 * @param interResponse
+	 *            - The object of Response class
+	 */
 	private void sendResponse(Response interResponse) {
 		byte[] resourse = interResponse.getFile();
 		String mimeType = interResponse.getMimeTypeFile();
@@ -96,8 +126,7 @@ public class RequestProcessor implements Runnable {
 			outputStream.write(response.getBytes());
 			outputStream.write(resourse);
 			outputStream.flush();
-			Logger.getLogger("console").log(Level.INFO,
-					"The request processed {\n" + interResponse.getLog() + "\n}");
+			Logger.getLogger("console").log(Level.INFO, "The request processed {\n" + interResponse.getLog() + "\n}");
 
 		} catch (IOException e) {
 			Logger.getLogger("console").log(Level.ERROR, "Error writing in output stream, when processing the request");
