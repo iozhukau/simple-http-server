@@ -7,22 +7,10 @@
 		class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%p %c: %m%n" />
+			<param name="ConversionPattern" value="%n[%p] - %d%n  %m%n" />
 		</layout>
 	</appender>
 
-<!-- 	<appender name="file" class="org.apache.log4j.FileAppender">
-
-		<param name="file" value="${log}/log.out" />
-		<param name="immediateFlush" value="true" />
-		<param name="threshold" value="debug" />
-		<param name="append" value="false" />
-
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="conversionPattern" value="%p %c: %m%n" />
-		</layout>
-	</appender>
- -->
 	<root>
 		<priority value="all" />
 		<appender-ref ref="console" />

@@ -4,36 +4,29 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import by.net.iozhukov.utilits.Watcher;
-
 /**
+ * 
+ * 
  * 
  * @author Ilya Zhukov (ilya.beetle@gmail.com)
  */
 public class Server {
 
-	private Thread thread;
-	private Watcher watcher;
+	private Thread service;
 	private ServerSocket serverSocket;
-
-	private Set<Thread> setThreads = new HashSet<>();
+	private Boolean continueWork;
 
 	public Server(Integer port) {
-		// TODO - Comments for Server constructor
-		this.watcher = new Watcher(setThreads, this);
 
 		// TODO - Comments for Server constructor
-		this.thread = new Thread() {
+		this.service = new Thread() {
 
 			@Override
 			public void run() {
-				job();
+				work();
 			}
 
 		};
@@ -42,8 +35,7 @@ public class Server {
 		try {
 			this.serverSocket = new ServerSocket(port.intValue());
 		} catch (IOException e) {
-			String message = "The server is already running or a socket is busy";
-			Logger.getLogger("console").log(Level.FATAL, message);
+			Logger.getLogger("console").log(Level.FATAL, "The server is already running or a socket is busy");
 			System.exit(0);
 		}
 	}
@@ -52,45 +44,49 @@ public class Server {
 	 * 
 	 */
 	public void launch() {
-		thread.start();
-		watcher.start();
 
-		String message = "Server started work";
-		Logger.getLogger("console").log(Level.INFO, message);
+		continueWork = true;
+		service.start();
+
+		Logger.getLogger("console").log(Level.INFO, "Server started work");
 	}
 
 	/**
 	 * 
 	 */
-	public synchronized void stop() {
-		while (true) {
-			if (setThreads.isEmpty()) {
-				break;
+	public void stop() {
+		continueWork = false;
+
+		synchronized (this) {
+			try {
+				this.wait(5000L);
+			} catch (InterruptedException e) {
+				Logger.getLogger("console").log(Level.ERROR, "The server did not work correctly");
+				System.exit(0);
 			}
+			Logger.getLogger("console").log(Level.INFO, "Server end work");
+			System.exit(0);
 		}
-		String message = "Server end work";
-		Logger.getLogger("console").log(Level.INFO, message);
-		System.exit(0);
 	}
 
 	/**
 	 * 
 	 */
-	private void job() {
+	private void work() {
 		while (true) {
 			try {
-				Socket socket = serverSocket.accept();
+				if (continueWork) {
 
-				Thread t = new Thread(new RequestProcessor(socket));
-				setThreads.add(t);
-				t.start();
+					Socket socket = serverSocket.accept();
+					new Thread(new RequestProcessor(socket)).start();
 
+				} else {
+					return;
+				}
 			} catch (SocketException e) {
-				String message = "1";
-				Logger.getLogger("console").log(Level.ERROR, message);
+				Logger.getLogger("console").log(Level.ERROR, "Error creating or accessing a Socket");
 			} catch (IOException e) {
-				String message = "2";
-				Logger.getLogger("console").log(Level.ERROR, message);
+				Logger.getLogger("console").log(Level.ERROR, "I/O error occurred while waiting for connection");
 			}
 		}
 	}
