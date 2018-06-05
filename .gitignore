@@ -2,6 +2,7 @@
 *.class
 
 # Eclipse
+.classpath
 .project
 .settings
 /build/
