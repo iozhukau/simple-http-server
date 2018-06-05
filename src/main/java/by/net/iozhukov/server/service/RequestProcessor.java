@@ -32,7 +32,7 @@ public class RequestProcessor implements Runnable {
 	private OutputStream outputStream;
 
 	/**
-	 * The designer configures the input and output streams, from which the files
+	 * The constructor configures the input and output streams, from which the files
 	 * will come and where they will go.
 	 * 
 	 * @param socket

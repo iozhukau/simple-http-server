@@ -99,9 +99,10 @@ public class Server {
 
 	/**
 	 * It's just a getter nothing more
+	 * @return - current server status
 	 */
 	public boolean getServerAvailable() {
-		return serverAvailable;
+		return serverAvailable.booleanValue();
 	}
 
 	/**
