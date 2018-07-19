@@ -1,4 +1,4 @@
-#Simple HTTP Server
+# Simple HTTP Server
 
 *Console application for studying the operation of the HTTP protocol.*
 
@@ -46,8 +46,8 @@
 	
 	5.2 Configuration file **configuration.properties**, containing: 
 	
-			*timerIsON* = \[true|false\] -- Switch for server timer
-			*timerTime* = \[from 1 to 153722867280911\] -- Time for timer, in minutes
+			*timerIsON* = [true|false] -- Switch for server timer
+			*timerTime* = [from 1 to 153722867280911] -- Time for timer, in minutes
 			*port* = [8080] -- Port on which the requests will be expected
 	
 6. The application is launched by the command **java -jar "Simple HTTP Server.jar"**
