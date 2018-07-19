@@ -4,7 +4,7 @@
 
 *The server can on request return various static resources, such as: html pages, images, JavaScript scripts and CSS tables.*
 
-[**Project page**](http://blog.ibeetle.info/p/simple-http-server.html "Simple HTTP Server")
+[**Project page**](--link-- "Simple HTTP Server")
 
 ##Technologies:
 
@@ -20,8 +20,8 @@
 
 - **JUnit**
 
-##How use this project
-1. Download the finished [archive](https://bitbucket.org/IlyaBeetle/simple-http-server/downloads/simple-http-server.zip "simple-http-server.zip").
+## How use this project
+1. Download the finished [archive](--link-- "simple-http-server.zip").
  
 2. Unzip to the right place archive
  
@@ -30,7 +30,7 @@
 4. Run the file start.bat
 
 
-##How build this project
+## How build this project
 
 1. Download the source code or clone the repository (stable branch is **master**).
 
