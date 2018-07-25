@@ -4,9 +4,9 @@
 
 *The server can on request return various static resources, such as: html pages, images, JavaScript scripts and CSS tables.*
 
-[**Project page**](--link-- "Simple HTTP Server")
+[**Project page**](http://blog.ibeetle.info/2017/12/project-simple-http-server.html "Simple HTTP Server")
 
-##Technologies:
+## Technologies:
 
 - **HTTP**
 
@@ -21,7 +21,7 @@
 - **JUnit**
 
 ## How use this project
-1. Download the finished [archive](--link-- "simple-http-server.zip").
+1. Download the finished [archive](https://www.dropbox.com/s/7omiko3x337glh2/simple-http-server.zip?dl=0 "simple-http-server.zip").
  
 2. Unzip to the right place archive
  
