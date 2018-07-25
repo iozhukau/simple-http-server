@@ -21,7 +21,7 @@
 - **JUnit**
 
 ## How use this project
-1. Download the finished [archive](https://www.dropbox.com/s/7omiko3x337glh2/simple-http-server.zip?dl=0 "simple-http-server.zip").
+1. Download the finished [archive](https://drive.google.com/open?id=1dToFTcW4C62KXgxRYFlRbQU03CJc7YH4 "Downloads").
  
 2. Unzip to the right place archive
  
