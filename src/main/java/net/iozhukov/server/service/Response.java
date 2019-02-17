@@ -1,39 +1,36 @@
-package by.net.iozhukov.server.service;
+package net.iozhukov.server.service;
+
+import java.util.List;
 
 /**
  * Class for creating Data Transfer Object necessary for server service
  * operation.<br>
  * Also, due to the operation of the multi-threaded application, it collects the
  * processing log internally to output it after the client responds.
- * 
- * @author Ilya Zhukov
+ *
+ * @author Ilya Zhukov (https://iozhukov.net)
  */
 public class Response {
 
-	// Fields
-	private String[] header = null;
+	private final StringBuilder log = new StringBuilder();
+	private List<String> headers = null;
 	private String HTTPMethod = "";
-	private String satusCodeResponse = "";
+	private String statusCodeResponse = "";
 	private String requestResource = "";
 	private String mimeTypeFile = "";
 	private String formatFile = "";
 	private String response = "";
 	private byte[] file = null;
 
-	private StringBuilder log = new StringBuilder();
-
-	// Constructor
 	public Response() {
-
 	}
 
-	// Getters and Setters
-	public String[] getHeader() {
-		return header;
+	public List<String> getHeaders() {
+		return headers;
 	}
 
-	public void setHeader(String[] header) {
-		this.header = header;
+	public void setHeaders(List<String> headers) {
+		this.headers = headers;
 	}
 
 	public String getHTTPMethod() {
@@ -48,8 +45,8 @@ public class Response {
 		return requestResource;
 	}
 
-	public void setRequestResource(String requestResorce) {
-		this.requestResource = requestResorce;
+	public void setRequestResource(String requestResource) {
+		this.requestResource = requestResource;
 	}
 
 	public String getFormatFile() {
@@ -76,12 +73,12 @@ public class Response {
 		this.file = file;
 	}
 
-	public String getSatusCodeResponse() {
-		return satusCodeResponse;
+	public String getStatusCodeResponse() {
+		return statusCodeResponse;
 	}
 
-	public void setSatusCodeResponse(String satusCodeResponse) {
-		this.satusCodeResponse = satusCodeResponse;
+	public void setStatusCodeResponse(String statusCodeResponse) {
+		this.statusCodeResponse = statusCodeResponse;
 	}
 
 	public String getResponse() {
@@ -99,12 +96,11 @@ public class Response {
 	/**
 	 * A method for adding an entry to the log of processing a particular query.<br>
 	 * <b>After each message puts a newline character.</b>
-	 * 
+	 *
 	 * @param message
-	 *            - String with message
+	 * 		- String with message
 	 */
 	public void addToLog(String message) {
-		log.append(message + "\n");
+		log.append(message).append("\n");
 	}
-
 }

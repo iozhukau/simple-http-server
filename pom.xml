@@ -1,46 +1,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>by.net.iozhukov</groupId>
+	<groupId>net.iozhukov</groupId>
 	<artifactId>SimpleServer</artifactId>
-	<name>Simple HTTP Server</name>
 	<packaging>jar</packaging>
-	<version>2.0</version>
+	<version>2.1</version>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.juinit>4.12</version.juinit>
+		<version.mokito>1.9.5</version.mokito>
+		<version.log4j>1.2.17</version.log4j>
+		<version.shade.plugin>3.1.1</version.shade.plugin>
 	</properties>
 
 	<dependencies>
+		<!-- Maven Plugins -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-shade-plugin</artifactId>
+			<version>${version.shade.plugin}</version>
+		</dependency>
+
+		<!-- Logger -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${version.log4j}</version>
+		</dependency>
+
+		<!-- Tests -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${version.juinit}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>1.9.5</version>
+			<version>${version.mokito}</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-shade-plugin</artifactId>
-			<version>3.1.1</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -49,14 +54,13 @@
 		<outputDirectory>target/classes</outputDirectory>
 
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>by.net.iozhukov.server.Launcher</mainClass>
+							<mainClass>net.iozhukov.server.Launcher</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -75,15 +79,14 @@
 						<configuration>
 							<transformers>
 								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>by.net.iozhukov.server.Launcher</mainClass>
+										implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>net.iozhukov.server.Launcher</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>
