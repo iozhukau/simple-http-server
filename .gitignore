@@ -9,6 +9,11 @@
 /target/
 /bin/
 
+# IDEA
+/.idea/
+.imp
+.impl
+
 # Log file
 *.log
 
