@@ -3,7 +3,7 @@
 _Console application for studying the operation of the HTTP protocol.
 The server can on request return various static resources, such as: html pages, images, JavaScript scripts and CSS tables._
 
-[**Project page**](https://iozhukov.net/project-simple-http-server.html "Simple HTTP Server")
+[**Project page**](https://blog.iozhukov.net/2017/12/project-simple-http-server.html "Simple HTTP Server")
 
 ## Technologies:
 - **HTTP**
@@ -14,10 +14,10 @@ The server can on request return various static resources, such as: html pages, 
 - **JUnit**
 
 ## How use this project
-1. Download the finished [archive](https://bitbucket.org/iozhukov-projects/simple-http-server/downloads/replace "Downloads").//TODO new link
+1. Download the finished [archive](https://bitbucket.org/iozhukov-projects/simple-http-server/downloads/simple-http-server.zip "Downloads").
 2. Unzip to the right place archive
 3. Put index.html and other resources in the folder WWW
-4. Run the file start.bat
+4. Run the file start.cmd
 
 ## How build this project
 
@@ -33,10 +33,10 @@ The server can on request return various static resources, such as: html pages, 
 
 	5.1 Folder **WWW** next to .jar file.
 	
-	5.2 Folder **config** next to .jar file with:
+	5.2 Folder **resources** next to .jar file with:
 	
 		- Configuration file **configuration.properties**, containing all properti(read the section "Properties")
-		- Folder **errors** //todo add unfo
+		- Folder **errors** whit html page for error. (400.html, 404.html, 500.html)
 		
 6. The application is launched by the command **java -jar "Simple HTTP Server.jar"**
 
