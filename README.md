@@ -1,11 +1,12 @@
 # Simple HTTP Server
 
-_Console application for studying the operation of the HTTP protocol.
-The server can on request return various static resources, such as: html pages, images, JavaScript scripts and CSS tables._
+_Console application for studying operations of the HTTP protocol._
+
+_The server can return various static resources on request e.g: html pages, images, JavaScript scripts and CSS tables._
 
 [**Project page**](https://blog.iozhukov.net/2017/12/project-simple-http-server.html "Simple HTTP Server")
 
-## Technologies:
+### Technologies:
 - **HTTP**
 - **Java 8**
 - **Properties**
@@ -13,13 +14,13 @@ The server can on request return various static resources, such as: html pages, 
 - **Maven**
 - **JUnit**
 
-## How use this project
-1. Download the finished [archive](https://bitbucket.org/iozhukov-projects/simple-http-server/downloads/simple-http-server.zip "Downloads").
+### How to use this application
+1. Download the [archive](https://bitbucket.org/iozhukov-projects/simple-http-server/downloads/simple-http-server.zip "Downloads") with application.
 2. Unzip to the right place archive
 3. Put index.html and other resources in the folder WWW
 4. Run the file start.cmd
 
-## How build this project
+### How to build this project
 
 1. Download the source code or clone the repository (stable branch is **master**).
 
@@ -40,7 +41,7 @@ The server can on request return various static resources, such as: html pages, 
 		
 6. The application is launched by the command **java -jar "Simple HTTP Server.jar"**
 
-## Properties
+### Properties
 
 - *timerIsON* = [true|false] -- Switch for server timer.
 - *timerTime* = [from 1 to 153722867280911] -- Time for timer, in minutes
