@@ -16,9 +16,9 @@ _The server can return various static resources on request e.g: html pages, imag
 
 ### How to use this application
 1. Download the [archive](https://bitbucket.org/iozhukov-projects/simple-http-server/downloads/simple-http-server.zip "Downloads") with application.
-2. Unzip to the right place archive
-3. Put index.html and other resources in the folder WWW
-4. Run the file start.cmd
+2. Unzip archive.
+3. Put index.html and other resources in the folder "WWW".
+4. Run the file "start.cmd".
 
 ### How to build this project
 
@@ -43,7 +43,7 @@ _The server can return various static resources on request e.g: html pages, imag
 
 ### Properties
 
-- *timerIsON* = [true|false] -- Switch for server timer.
-- *timerTime* = [from 1 to 153722867280911] -- Time for timer, in minutes
-- *port* = [8080] -- Port on which the requests will be expected
+			timerIsON = [true|false] -- Switch for server timer.
+			timerTime = [from 1 to 153722867280911] -- Time for timer, in minutes
+			port = [8080] -- Port on which the requests will be expected
 
