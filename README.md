@@ -28,13 +28,13 @@ _The server can return various static resources on request e.g: html pages, imag
 
 3. Run the command **mvn package** in the root of the project.
 
-4. In the root of the project, the folder **"target"** appears, it will contain **"Simple HTTP Server.jar"**. This is the executable file.
+4. In the root of the project, the folder **"target"** appears, it will contain **"simple-http-server.jar"**. This is the executable file.
 
 5. **The application will not work without some things:**
 
-	5.1 Folder **WWW** next to .jar file.
+	5.1 Folder **WWW** next to "simple-http-server.jar" file.
 	
-	5.2 Folder **resources** next to .jar file with:
+	5.2 Folder **resources** next to "simple-http-server.jar" file with:
 	
 		- Configuration file **configuration.properties**, containing all properti(read the section "Properties")
 		- Folder **errors** whit html page for error. (400.html, 404.html, 500.html)
