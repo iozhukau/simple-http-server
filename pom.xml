@@ -49,7 +49,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Simple HTTP Server</finalName>
+		<finalName>simple-http-server</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<outputDirectory>target/classes</outputDirectory>
 

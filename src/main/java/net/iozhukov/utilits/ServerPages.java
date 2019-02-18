@@ -1,13 +1,11 @@
 package net.iozhukov.utilits;
 
-import org.apache.log4j.Logger;
-
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static net.iozhukov.utilits.ServerConstants.RESOURCES_PATH;
 
 /**
  * Class storage html error pages.
@@ -16,7 +14,7 @@ import java.nio.file.Paths;
  */
 public class ServerPages {
 
-	private static final Logger logger = Logger.getLogger("console");
+
 
 	private static String page400;
 	private static String page404;
@@ -44,11 +42,11 @@ public class ServerPages {
 	}
 
 	public static void loadResources() throws IOException {
-		Path p400 = Paths.get("./config/errors/400.html");
+		Path p400 = Paths.get(RESOURCES_PATH + "/errors/400.html");
 		page400 = String.join("", Files.readAllLines(p400));
-		Path p404 = Paths.get("./config/errors/404.html");
+		Path p404 = Paths.get(RESOURCES_PATH + "./errors/404.html");
 		page404 = String.join("", Files.readAllLines(p404));
-		Path p500 = Paths.get("./config/errors/500.html");
+		Path p500 = Paths.get(RESOURCES_PATH + "./errors/500.html");
 		page500 = String.join("", Files.readAllLines(p500));
 	}
 }

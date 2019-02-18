@@ -3,7 +3,7 @@ package net.iozhukov.utilits;
 import net.iozhukov.server.service.Response;
 
 import static net.iozhukov.utilits.HeaderRequestParser.Type.*;
-import static net.iozhukov.utilits.StringConstants.STATUS_BAD_REQUEST;
+import static net.iozhukov.utilits.ServerConstants.STATUS_BAD_REQUEST;
 
 /**
  * The class parses the data from the request header and writes them to the

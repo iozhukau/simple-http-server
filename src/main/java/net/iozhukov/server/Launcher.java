@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import static net.iozhukov.utilits.ServerConstants.*;
+
 /**
  * @author Ilya Zhukov (https://iozhukov.net)
  */
@@ -24,17 +26,18 @@ public class Launcher {
 	}
 
 	private static Server createServer() {
-		logger.log(Level.INFO, "Started server initialization");
+		logger.log(Level.INFO, "Start server initialization");
+
 		loadConfiguration();
 		loadErrorPages();
 
-		int port = Integer.parseInt(config.getProperty("port", "8080"));
+		int port = Integer.parseInt(config.getProperty(PROPERTY_KEY_PORT, DEFAULT_PORT));
 		logger.log(Level.INFO, "Port: " + port);
 
-		boolean timerOn = Boolean.parseBoolean(config.getProperty("timerIsON", "false"));
+		boolean timerOn = Boolean.parseBoolean(config.getProperty(PROPERTY_KEY_DEFAULT_TIMER, DEFAULT_TIMER));
 		logger.log(Level.INFO, "Time is ON: " + timerOn);
 
-		Long timerTime = Long.parseLong(config.getProperty("timerTime", "1"));
+		Long timerTime = Long.parseLong(config.getProperty(PROPERTY_KEY_TIMER_TIME, DEFAULT_TIMER_TIME));
 		logger.log(Level.INFO, "Set timer on: " + timerTime + "m");
 
 		return timerOn ? new Server(port, timerTime) : new Server(port);
@@ -48,7 +51,7 @@ public class Launcher {
 	private static void loadConfiguration() {
 		logger.log(Level.INFO, "Reading Configuration");
 		try {
-			config.load(new FileInputStream("./config/configuration.properties"));
+			config.load(new FileInputStream(CONFIGURATION_PATH));
 		} catch (FileNotFoundException e) {
 			logger.log(Level.WARN,
 					"The configuration file was not found! The default settings will be used (timer = OFF, socket = 8080)");

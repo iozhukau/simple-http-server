@@ -8,8 +8,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import static net.iozhukov.utilits.StringConstants.END_LINE;
-import static net.iozhukov.utilits.StringConstants.STATUS_INTERNAL_SERVER_ERROR;
+import static net.iozhukov.utilits.ServerConstants.END_LINE;
+import static net.iozhukov.utilits.ServerConstants.STATUS_INTERNAL_SERVER_ERROR;
 
 /**
  * The class implements the Runnable interface.<br>

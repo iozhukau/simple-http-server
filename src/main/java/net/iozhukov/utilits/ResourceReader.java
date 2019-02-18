@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static net.iozhukov.utilits.StringConstants.*;
+import static net.iozhukov.utilits.ServerConstants.*;
 
 /**
  * The class determines which resource it is asking for, and returns it or the
