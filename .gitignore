@@ -1,6 +1,7 @@
 # Project
 dependency-reduced-pom.xml
 /WWW/*
+*/dir/*
 
 # Compiled class file
 *.class
